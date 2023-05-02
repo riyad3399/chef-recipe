@@ -1,42 +1,49 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
-    const { createUser } = useContext(AuthContext);
-    const [error, setError] = useState('');
+  const handleRegister = (event) => {
+    event.preventDefault();
 
-    const handleRegister = (event) => {
-        event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
 
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        const photo = form.photo.value;
-        console.log(name, email, password, photo);
-
-        createUser(email, password)
-            .then(result => {
-                const createUser = result.user;
-                console.log(createUser);
-                setError('')
-            })
-            .catch(error => {
-                setError(error.message);
-        })
-    }
-
+    createUser(email, password)
+      .then((result) => {
+        const createUser = result.user;
+        console.log(createUser);
+        setError("");
+        toast.success("Register successful", {
+          theme: "dark",
+          autoClose: 2000,
+        });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
   return (
     <div className="hero min-h-screen bg-base-200 py-8">
-      <form onSubmit={handleRegister} className="hero-content flex-col md:flex-row-reverse">
+      <div className="hero-content flex-col md:flex-row-reverse">
         <div className="text-center">
           <h1 className="text-5xl font-bold mt-5">Register now!</h1>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+        <div
+          
+          className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+        >
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -84,15 +91,25 @@ const Register = () => {
                 className="input input-bordered"
               />
               <label className="label">
-                <p>You Have Already Account? <Link className="text-blue-500 underline" to='/login'>Login</Link></p>
+                <p>
+                  You Have Already Account?{" "}
+                  <Link className="text-blue-500 underline" to="/login">
+                    Login
+                  </Link>
+                </p>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <input
+                className="btn btn-primary"
+                type="submit"
+                value="Register"
+              />
             </div>
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
+      <ToastContainer />
     </div>
   );
 };

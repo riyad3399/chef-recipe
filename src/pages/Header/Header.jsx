@@ -33,20 +33,20 @@ const Header = () => {
             {user ? (
               <>
                 {user.photoURL ? (
-                  <img src={user.phtotoURL} alt="" />
+                  <img className="h-10 rounded-full mr-2" src={user.photoURL} alt="" />
                 ) : (
                   <FaUser className="text-2xl mx-4" />
                 )}
                 <button
                   onClick={handleLogout}
-                  className="bg-blue-500 px-4 py-2 rounded-md text-white font-medium"
+                  className="bg-gray-500 px-4 py-2 rounded-md text-white font-medium"
                 >
                   Log out
                 </button>{" "}
               </>
             ) : (
               <Link to="/login">
-                <button className="bg-gray-400 px-4 py-2 rounded-md text-white font-medium">
+                <button className="bg-blue-400 px-4 py-2 rounded-md text-white font-medium">
                   Login
                 </button>
               </Link>

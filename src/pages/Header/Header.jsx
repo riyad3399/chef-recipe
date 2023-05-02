@@ -39,14 +39,14 @@ const Header = () => {
                 )}
                 <button
                   onClick={handleLogout}
-                  className="bg-gray-500 px-4 py-2 rounded-md text-white font-medium"
+                  className="bg-gray-400 duration-300 hover:bg-gray-500 px-4 py-2 rounded-md text-white font-medium"
                 >
                   Log out
                 </button>{" "}
               </>
             ) : (
               <Link to="/login">
-                <button className="bg-blue-400 px-4 py-2 rounded-md text-white font-medium">
+                <button className="bg-blue-400 hover:bg-blue-500 duration-300 px-4 py-2 rounded-md text-white font-medium">
                   Login
                 </button>
               </Link>

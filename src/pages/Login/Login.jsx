@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { signIn, loginWithGoogle } = useContext(AuthContext);
+  const { signIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
 
   const [error, setError] = useState("");
 
@@ -32,6 +32,17 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     loginWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    loginWithGithub()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -87,12 +98,20 @@ const Login = () => {
             <div className="form-control mt-3">
               <input className="btn btn-primary" type="submit" value="Login" />
             </div>
-            <span className="border-y-2"></span>
-            <div className="mt-4">
-              <button type="button" onClick={handleGoogleLogin} className="btn btn-outline btn-primary w-full mb-2">
+            <hr className="border border-gray-300 mt-1"/>
+            <div className="mt-2">
+              <button
+                type="button"
+                onClick={handleGoogleLogin}
+                className="btn btn-outline btn-primary w-full mb-2"
+              >
                 <FaGoogle className="mr-2" /> Google Login
               </button>
-              <button type="button" className="btn btn-outline w-full">
+              <button
+                onClick={handleGithubLogin}
+                type="button"
+                className="btn btn-outline w-full"
+              >
                 <FaGithub className="mr-2" /> Github Login
               </button>
             </div>

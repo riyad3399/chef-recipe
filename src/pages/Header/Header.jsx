@@ -17,16 +17,16 @@ const Header = () => {
   return (
     <nav>
       <div className="navbar bg-base-100 sm:w-full shadow-md">
-        <div className="flex-1">
-          <a className="btn btn-ghost normal-case sm:text-2xl font-semibold text-gray-400">
+        <div className="flex-1 text-orange-400">
+          <a className="btn sm:btn-ghost normal-case sm:text-2xl font-bold  animate-pulse duration-300">
             Cook's Corner
           </a>
         </div>
         <div className="flex gap-5 items-center">
-          <Link className="text-md font-medium" to="/">
+          <Link className="sm:text-md font-medium" to="/">
             Home
           </Link>
-          <Link className="text-md font-medium" to="/blog">
+          <Link className="sm:text-md font-medium" to="/blog">
             Blog
           </Link>
           <div className="mr-5 flex items-center">

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
+
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -15,7 +16,8 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
+      const photo = form.photo.value;
+      form.reset();
     console.log(name, email, password, photo);
 
     createUser(email, password)
@@ -35,14 +37,14 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200 py-8">
-      <div className="hero-content flex-col md:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center">
           <h1 className="text-5xl font-bold mt-5">Register now!</h1>
         </div>
-        <div
-          
-          className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
-        >
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <p className="text-center text-red-500  flex font-medium items-center gap-1">
+            <span>{error}</span>
+          </p>
           <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -109,7 +111,6 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

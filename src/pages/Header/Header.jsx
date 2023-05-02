@@ -1,10 +1,18 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-import {  FaUser,  } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <nav>
@@ -24,10 +32,24 @@ const Header = () => {
           <div className="mr-5 flex items-center">
             {user ? (
               <>
-                <FaUser className="text-2xl mx-4"/> <button className="bg-blue-500 px-4 py-2 rounded-md text-white font-medium">Log out</button>{" "}
+                {user.photoURL ? (
+                  <img src={user.phtotoURL} alt="" />
+                ) : (
+                  <FaUser className="text-2xl mx-4" />
+                )}
+                <button
+                  onClick={handleLogout}
+                  className="bg-blue-500 px-4 py-2 rounded-md text-white font-medium"
+                >
+                  Log out
+                </button>{" "}
               </>
             ) : (
-              <Link to='/login'><button className="bg-gray-400 px-4 py-2 rounded-md text-white font-medium">Login</button></Link>
+              <Link to="/login">
+                <button className="bg-gray-400 px-4 py-2 rounded-md text-white font-medium">
+                  Login
+                </button>
+              </Link>
             )}
           </div>
         </div>

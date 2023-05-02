@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
 
+  const handleLogin = (event) => {
+    event.preventDefault();
 
-    
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200 ">
-      <form className="hero-content flex-col md:flex-row-reverse">
+      <form
+        onSubmit={handleLogin}
+        className="hero-content flex-col md:flex-row-reverse"
+      >
         <div className="text-center">
           <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
@@ -18,7 +30,9 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
+                name="email"
+                required
                 placeholder="email"
                 className="input input-bordered"
               />
@@ -28,7 +42,9 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
+                name="password"
+                required
                 placeholder="password"
                 className="input input-bordered"
               />

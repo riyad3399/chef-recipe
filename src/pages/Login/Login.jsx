@@ -34,7 +34,7 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        toast.success('Login successful', { theme: 'dark', autoClose: 2000})
       })
       .catch((error) => {
         console.log(error);
@@ -45,7 +45,7 @@ const Login = () => {
     loginWithGithub()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        toast.success('Login successful', { theme: 'dark', autoClose: 2000})
       })
       .catch((error) => {
         console.log(error);

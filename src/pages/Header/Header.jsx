@@ -2,13 +2,16 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaUser } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        toast.success('Logout successful', {theme:'dark', autoClose: 2000})
+      })
       .catch((error) => {
         console.log(error);
       });

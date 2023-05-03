@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Chef from "../Chef/Chef";
-import ViewRecipes from "../ViewRecipes/ViewRecipes";
 
 const AllChef = () => {
   const [allChef, setAllChef] = useState([]);
-  //   console.log(allChef);
 
   useEffect(() => {
     fetch("http://localhost:5000/alldatas")

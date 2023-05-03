@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./Layouts/Main/Main.jsx";
@@ -12,8 +11,8 @@ import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 
 import ViewRecipes from "./pages/ViewRecipes/ViewRecipes.jsx";
-import Chef from "./pages/Chef/Chef.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
+import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewrecipes/:id",
-        element: <ViewRecipes></ViewRecipes>,
+        element: <PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>,
         loader: ({ params }) => {
          return fetch(`http://localhost:5000/alldatas/${params.id}`);
         },

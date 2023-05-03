@@ -1,14 +1,16 @@
+import { data } from 'autoprefixer';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Recipe from '../Recipe/Recipe';
 
 const ViewRecipes = () => {
 
-    const data = useLoaderData()
-    console.log(data);
+    const allRecipes = useLoaderData()
+    console.log(allRecipes.recipes);
 
     return (
         <div>
-            
+           <Recipe allRecipes={allRecipes}></Recipe>
         </div>
     );
 };

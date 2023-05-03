@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
 import { FaThumbsUp } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
   const { chef_photo, experience, chef_name, number_of_recipes, likes, id } = chef;

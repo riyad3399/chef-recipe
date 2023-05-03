@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         path: "/viewrecipes/:id",
         element: <ViewRecipes></ViewRecipes>,
         loader: ({ params }) => {
-          fetch(`http://localhost:5000/alldatas/${params.id}`);
+         return fetch(`http://localhost:5000/alldatas/${params.id}`);
         },
       },
     ],

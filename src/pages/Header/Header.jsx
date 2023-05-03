@@ -18,7 +18,7 @@ const Header = () => {
     <nav>
       <div className="navbar bg-base-100 sm:w-full shadow-md">
         <div className="flex-1 text-orange-400">
-          <a className="btn sm:btn-ghost normal-case sm:text-2xl font-bold  animate-pulse duration-300">
+          <a className="sm:btn sm:btn-ghost normal-case sm:text-2xl font-bold  animate-pulse duration-300">
             Cook's Corner
           </a>
         </div>

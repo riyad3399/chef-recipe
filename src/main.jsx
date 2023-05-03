@@ -7,14 +7,19 @@ import Main from "./Layouts/Main/Main.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Header from "./pages/Header/Header.jsx";
 import Blog from "./pages/Blog/Blog.jsx";
-import AuthProvider, { AuthContext } from "./Providers/AuthProvider.jsx";
+import AuthProvider from "./Providers/AuthProvider.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
+
+import ViewRecipes from "./pages/ViewRecipes/ViewRecipes.jsx";
+import Chef from "./pages/Chef/Chef.jsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -35,6 +40,13 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "/viewrecipes/:id",
+        element: <ViewRecipes></ViewRecipes>,
+        loader: ({ params }) => {
+          fetch(`http://localhost:5000/alldatas/${params.id}`);
+        },
       },
     ],
   },

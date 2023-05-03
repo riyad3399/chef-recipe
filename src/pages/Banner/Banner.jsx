@@ -4,7 +4,7 @@ import chef from "../../lottie/chef.json";
 
 const Banner = () => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4 items-center bg-banner">
+    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4 items-center bg-banner rounded-md mt-5">
       <div className="m-4  p-5">
         <h2 className="text-6xl font-bold ">
           Welcome to 

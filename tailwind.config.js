@@ -5,9 +5,10 @@ export default {
     extend: {
       backgroundImage: {
         banner:
-          "linear-gradient(to right bottom, rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))",
+          "linear-gradient(to right bottom, rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url('/image/banner.jpg')",
         background:
-          "linear-gradient(to right bottom, rgba(1, 0, 0, 0.1),rgba(0, 0, 0, 0.1)) ,url('/image/backgroundImg.jpg')",
+          "linear-gradient(to right bottom, rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)) ,url('/image/backgroundImg.jpg')",
+        blog: "linear-gradient(to right bottom, rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)) ,url('/image/blogs.jpg')",
       },
     },
   },

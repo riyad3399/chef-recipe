@@ -11,8 +11,8 @@ const AllChef = () => {
   }, []);
 
   return (
-    <div className="bg-background rounded-md mt-8">
-      <h2 className="text-6xl text-center font-bold pt-4 text-orange-500 animate-pulse duration-300 mb-8">
+    <div className="bg-banner rounded-md mt-8">
+      <h2 className="text-6xl text-center font-bold pt-4 text-white animate-pulse duration-300 mb-8">
         All Chefs !
       </h2>
       <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-4 px-4">

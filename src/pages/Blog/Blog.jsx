@@ -2,18 +2,23 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div>
-      <h1 className="text-center text-5xl font-bold my-5 ">Blog Page</h1>
-      <div>
+    <div className="bg-banner ">
+      <h1 className="text-center text-5xl font-bold my-5 text-white pt-4">
+        Blog Page
+      </h1>
+      <div className="grid md:grid-cols-2 gap-5 p-8">
         <div
           className="card w-full bg-base-100 shadow-xl hover:border-2 border-orange-200 
 
  mt-8"
         >
           <div className="card-body">
+            <span className="text-orange-400 block text-lg font-medium">
+              Qution 1.
+            </span>
             <h2 className="card-title">
-              <span className="text-orange-400">Qution 1.</span> Tell us the
-              differences between uncontrolled and controlled components.
+              Tell us the differences between uncontrolled and controlled
+              components.
             </h2>
             <div className="card-actions justify-end">
               {/* The button to open modal */}
@@ -53,9 +58,11 @@ const Blog = () => {
  mt-8"
         >
           <div className="card-body">
+            <span className="text-orange-400 block text-lg font-medium">
+              Qution 2.
+            </span>
             <h2 className="card-title">
-              <span className="text-orange-400">Qution 2.</span> How to validate
-              React props using PropTypes
+              How to validate React props using PropTypes
             </h2>
             <div className="card-actions justify-end">
               {/* The button to open modal */}
@@ -96,9 +103,12 @@ const Blog = () => {
  mt-8"
         >
           <div className="card-body">
+            <span className="text-orange-400 block text-lg font-medium">
+              Qution 3.
+            </span>{" "}
+           
             <h2 className="card-title">
-              <span className="text-orange-400">Qution 3.</span> Tell us the
-              difference between nodejs and express js.
+            Tell us the difference between nodejs and express js.
             </h2>
             <div className="card-actions justify-end">
               {/* The button to open modal */}
@@ -147,9 +157,12 @@ const Blog = () => {
  mt-8"
         >
           <div className="card-body">
+            <span className="text-orange-400 block text-lg font-medium">
+              Qution 4.
+            </span>{" "}
+            
             <h2 className="card-title">
-              <span className="text-orange-400">Qution 4.</span> What is a
-              custom hook, and why will you create a custom hook?
+            What is a custom hook, and why will you create a custom hook?
             </h2>
             <div className="card-actions justify-end">
               {/* The button to open modal */}

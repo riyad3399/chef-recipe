@@ -7,9 +7,9 @@ const Chef = ({ chef }) => {
 
   return (
     <div className="my-5">
-      <div className="card sm:w-full  shadow-xl bg-gray-100 duration-300 hover:-translate-y-6
+      <div className="card sm:w-full  shadow-xl bg-gray-100 duration-300 hover:-translate-y-6 bg-background
 
-hover:scale-95 hover:border border-orange-200">
+hover:scale-95 hover:border border-orange-200 ">
         <figure className="px-8 pt-8">
           <img
             src={chef_photo}
@@ -18,21 +18,21 @@ hover:scale-95 hover:border border-orange-200">
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-2xl font-bold text-gray-500 my-5">
+          <h2 className="card-title text-2xl font-bold text-gray-50 my-5">
             {chef_name}
           </h2>
-          <p className="text-lg font-medium text-gray-400">
-            Experience: <span className="text-orange-400">{experience}</span>
+          <p className="text-lg font-medium text-gray-100">
+            Experience: <span className="text-orange-200">{experience}</span>
           </p>
-          <p className="text-lg font-medium text-gray-400">
+          <p className="text-lg font-medium text-gray-100">
             Recepies:{" "}
-            <span className="text-orange-400">{number_of_recipes}</span>
+            <span className="text-orange-200">{number_of_recipes}</span>
           </p>
           <div className="flex justify-between items-center gap-5">
             <div>
-              <p className="text-lg font-medium text-gray-400 flex gap-2 items-center">
-                Likes: <FaThumbsUp className="text-blue-500" />{" "}
-                <span className="text-orange-400">{likes}</span>
+              <p className="text-lg font-medium text-gray-100 flex gap-2 items-center">
+                Likes: <FaThumbsUp className="text-blue-400" />{" "}
+                <span className="text-orange-200">{likes}</span>
               </p>
             </div>
             <div className="card-actions">

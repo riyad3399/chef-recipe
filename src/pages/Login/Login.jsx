@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -8,6 +8,10 @@ const Login = () => {
   const { signIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
 
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  console.log('login page location', location);
+  const from = location.state?.from?.pathname || '/viewrecipes/1';
+
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -24,6 +28,7 @@ const Login = () => {
         console.log(loggedUser);
         setError("");
         toast.success("Login successful", { theme: "dark", autoClose: 2000 });
+        navigate(from, {replace:true})
       })
       .catch((error) => {
         setError(error.message);
@@ -34,7 +39,8 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
-        toast.success('Login successful', { theme: 'dark', autoClose: 2000})
+        toast.success('Login successful', { theme: 'dark', autoClose: 2000 })
+        navigate(from, {replace:true})
       })
       .catch((error) => {
         console.log(error);
@@ -45,7 +51,8 @@ const Login = () => {
     loginWithGithub()
       .then((result) => {
         const loggedUser = result.user;
-        toast.success('Login successful', { theme: 'dark', autoClose: 2000})
+        toast.success('Login successful', { theme: 'dark', autoClose: 2000 })
+        navigate(from, {replace:true})
       })
       .catch((error) => {
         console.log(error);

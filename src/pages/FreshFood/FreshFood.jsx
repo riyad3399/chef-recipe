@@ -2,8 +2,8 @@ import React from "react";
 
 const FreshFood = () => {
   return (
-    <div className="my-8 bg-cyan-100 p-4 rounded-md">
-      <h1 className="text-5xl text-center font-semibold my-8 text-gray-500">
+    <div className="my-8 bg-cyan-200 p-4 rounded-md">
+      <h1 className="text-5xl text-center font-semibold mb-12 mt-4 text-gray-500">
         Clean And Fresh Food <br />
         With Great Nutrition
       </h1>
@@ -34,7 +34,7 @@ const FreshFood = () => {
           </div>
           <div className="bg-orange-50 p-4 rounded-md border border-orange-200">
             <h3 className="text-2xl font-semibold mb-2">
-              diet health service give me{" "}
+              Diet Health Service Give Me{" "}
             </h3>
             <p className="text-lg text-gray-600">
               To gain weight, you need to consume more calories than you burn.

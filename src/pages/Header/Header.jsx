@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaUser } from "react-icons/fa";
 import { toast } from "react-toastify";
+import ActiveLink from "../../ActiveLink/ActiveLink";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+
 
   const handleLogout = () => {
     logOut()
@@ -26,12 +29,12 @@ const Header = () => {
           </a>
         </div>
         <div className="flex gap-5 items-center">
-          <Link className="sm:text-md font-medium" to="/">
-            Home
-          </Link>
-          <Link className="sm:text-md font-medium" to="/blog">
-            Blog
-          </Link>
+          <ActiveLink to="/">
+           <span className="sm:text-md font-medium">Home</span>
+          </ActiveLink>
+          <ActiveLink  to="/blog">
+           <span className="sm:text-md font-medium"> Blog</span>
+          </ActiveLink>
           <div className="mr-5 flex items-center">
             {user ? (
               <>

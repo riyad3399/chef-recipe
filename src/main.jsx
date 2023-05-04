@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewrecipes/:id",
-        element: <ViewRecipes></ViewRecipes>,
+        element: <PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>,
         loader: ({ params }) => {
          return fetch(`https://chef-recipe-server-side-riyad3399.vercel.app/alldatas/${params.id}`);
         },

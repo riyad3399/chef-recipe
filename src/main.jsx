@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path: "/viewrecipes/:id",
         element: <PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>,
         loader: ({ params }) => {
-         return fetch(`http://localhost:5000/alldatas/${params.id}`);
+         return fetch(`https://chef-recipe-server-side-riyad3399.vercel.app/alldatas/${params.id}`);
         },
       },
     ],

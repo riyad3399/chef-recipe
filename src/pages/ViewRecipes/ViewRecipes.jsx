@@ -24,7 +24,7 @@ const ViewRecipes = () => {
 
   return (
     <>
-      <div className="card card-side bg-base-100 shadow-xl mt-8">
+      <div className="card card-side bg-base-100 shadow-xl mt-8 w-full">
         <figure className="w-3/6 h-96">
           <img className="w-full h-full" src={chef_photo} alt="Movie" />
         </figure>
@@ -33,7 +33,7 @@ const ViewRecipes = () => {
           <p className="text-xl font-medium text-gray-500 my-5">
             {recipes[0].description}
           </p>
-          <div className="space-y-2 flex  items-center justify-between">
+          <div className="space-y-2 sm:flex  items-center justify-between">
             <p className="text-gray-400 text-lg font-medium flex items-center gap-1">
               <FaThumbsUp className="text-blue-500" /> Likes:{" "}
               <span className="text-orange-400">{likes}</span>{" "}

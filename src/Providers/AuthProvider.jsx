@@ -19,18 +19,22 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signIn = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   useEffect(() => {
     const unsebscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false)
     });
     return () => {
       unsebscribe();
@@ -38,14 +42,17 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logOut = () => {
+    setLoading(true)
     return signOut(auth);
   };
 
   const loginWithGoogle = () => {
+    setLoading(true)
     return signInWithPopup(auth, googleProvider);
   };
 
   const loginWithGithub = () => {
+    setLoading(true)
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -56,6 +63,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     loginWithGoogle,
     loginWithGithub,
+    loading,
   };
 
   return (

@@ -3,7 +3,7 @@ import React from "react";
 const FreshFood = () => {
   return (
     <div className="my-8 bg-cyan-200 p-4 rounded-md">
-      <h1 className="text-5xl text-center font-semibold mb-12 mt-4 text-gray-500">
+      <h1 className="text-5xl text-center font-semibold mb-12 mt-4 text-gray-700">
         Clean And Fresh Food <br />
         With Great Nutrition
       </h1>

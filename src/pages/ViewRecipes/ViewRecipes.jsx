@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaThumbsUp, FaExpand } from "react-icons/fa";
-
+import { FaThumbsUp, FaHeart } from "react-icons/fa";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+import { toast } from "react-toastify";
 
 const ViewRecipes = () => {
   const allRecipes = useLoaderData();
@@ -16,8 +18,12 @@ const ViewRecipes = () => {
     experience,
   } = allRecipes;
 
+  const handleFavorite = () => {
+   return toast.success("Add to Favorite", { theme: "dark", autoClose: 2000 });
+  };
+
   return (
-    <div>
+    <>
       <div className="card card-side bg-base-100 shadow-xl mt-8">
         <figure className="w-3/6 h-96">
           <img className="w-full h-full" src={chef_photo} alt="Movie" />
@@ -42,13 +48,138 @@ const ViewRecipes = () => {
           </div>
         </div>
       </div>
+      <div className="grid md:grid-cols-3 gap-5 w-4/5 mx-auto mt-28">
+        <div className="card card-compact w-full bg-base-100 shadow-xl">
+          <figure>
+            <img
+              className="h-44 w-full"
+              src={recipes[0].recipe_photo}
+              alt="Shoes"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{recipes[0].name}</h2>
+            <p>{recipes[0].description}</p>
+            <div>
+              <p className="text-base text-gray-400 flex gap-2">
+                Like: <FaThumbsUp className="text-blue-500" />{" "}
+                <span className="text-orange-400"> {likes}</span>
+              </p>
+              <p className="text-base text-gray-400">
+                Recipes:{" "}
+                <span className="text-orange-400">{number_of_recipes}</span>{" "}
+              </p>
+              <p className="text-base text-gray-400 flex gap-2">
+                Reting:{" "}
+                <span className="text-orange-400">{recipes[0].rating}</span>{" "}
+                <Rating
+                  style={{ maxWidth: 120 }}
+                  value={Math.round(recipes[0]?.rating)}
+                  readOnly
+                />{" "}
+              </p>
+            </div>
+            <div className="card-actions justify-end">
+              <span onClick={handleFavorite}>
+                {" "}
+                <FaHeart
+                  className="text-red-400 cursor-pointer"
+                  style={{ fontSize: "30px" }}
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="card card-compact w-full bg-base-100 shadow-xl">
+          <figure>
+            <img
+              className="h-44 w-full"
+              src={recipes[1].recipe_photo}
+              alt="Shoes"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{recipes[1].name}</h2>
+            <p>{recipes[1].description}</p>
+            <div>
+              <p className="text-base text-gray-400 flex gap-2">
+                Like: <FaThumbsUp className="text-blue-500" />{" "}
+                <span className="text-orange-400"> {likes}</span>
+              </p>
+              <p className="text-base text-gray-400">
+                Recipes:{" "}
+                <span className="text-orange-400">{number_of_recipes}</span>{" "}
+              </p>
+              <p className="text-base text-gray-400 flex gap-2">
+                Reting:{" "}
+                <span className="text-orange-400">{recipes[1].rating}</span>{" "}
+                <Rating
+                  style={{ maxWidth: 120 }}
+                  value={Math.round(recipes[1]?.rating)}
+                  readOnly
+                />{" "}
+              </p>
+            </div>
+            <div className="card-actions justify-end">
+              <span onClick={handleFavorite}>
+                {" "}
+                <FaHeart
+                  className="text-red-400 cursor-pointer"
+                  style={{ fontSize: "30px" }}
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="card card-compact w-full bg-base-100 shadow-xl">
+          <figure>
+            <img
+              className="h-44 w-full"
+              src={recipes[2].recipe_photo}
+              alt="Shoes"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{recipes[2].name}</h2>
+            <p>{recipes[2].description}</p>
+            <div>
+              <p className="text-base text-gray-400 flex gap-2">
+                Like: <FaThumbsUp className="text-blue-500" />{" "}
+                <span className="text-orange-400"> {likes}</span>
+              </p>
+              <p className="text-base text-gray-400">
+                Recipes:{" "}
+                <span className="text-orange-400">{number_of_recipes}</span>{" "}
+              </p>
+              <p className="text-base text-gray-400 flex gap-2">
+                Reting:{" "}
+                <span className="text-orange-400">{recipes[2].rating}</span>{" "}
+                <Rating
+                  style={{ maxWidth: 120 }}
+                  value={Math.round(recipes[2]?.rating)}
+                  readOnly
+                />{" "}
+              </p>
+            </div>
+            <div className="card-actions justify-end">
+              <span onClick={handleFavorite}>
+                {" "}
+                <FaHeart
+                  className="text-red-400 cursor-pointer"
+                  style={{ fontSize: "30px" }}
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="text-center my-5">
         <Link to="/">
           {" "}
           <button className="btn btn-success">Back to Home</button>
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

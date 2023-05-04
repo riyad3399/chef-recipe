@@ -7,7 +7,9 @@ const Chef = ({ chef }) => {
 
   return (
     <div className="my-5">
-      <div className="card sm:w-full  shadow-xl bg-gray-100">
+      <div className="card sm:w-full  shadow-xl bg-gray-100 duration-300 hover:-translate-y-6
+
+hover:scale-95 hover:border border-orange-200">
         <figure className="px-8 pt-8">
           <img
             src={chef_photo}

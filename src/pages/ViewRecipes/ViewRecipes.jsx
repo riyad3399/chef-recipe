@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaThumbsUp, FaHeart, FaArrowLeft } from "react-icons/fa";
@@ -8,6 +8,9 @@ import { toast } from "react-toastify";
 
 const ViewRecipes = () => {
   const allRecipes = useLoaderData();
+  const [btnDisabled, setBtnDisabled] = useState(false);
+  const [btnDisabled2, setBtnDisabled2] = useState(false);
+  const [btnDisabled3, setBtnDisabled3] = useState(false);
 
   const {
     recipes,
@@ -19,7 +22,16 @@ const ViewRecipes = () => {
   } = allRecipes;
 
   const handleFavorite = () => {
-    return toast.success("Add to Favorite", { theme: "dark", autoClose: 2000 });
+    toast.success("Add to Favorite", { theme: "dark", autoClose: 2000 });
+    setBtnDisabled(true);
+  };
+  const handleFavorite2 = () => {
+    toast.success("Add to Favorite", { theme: "dark", autoClose: 2000 });
+    setBtnDisabled2(true);
+  };
+  const handleFavorite3 = () => {
+    toast.success("Add to Favorite", { theme: "dark", autoClose: 2000 });
+    setBtnDisabled3(true);
   };
 
   return (
@@ -33,7 +45,7 @@ const ViewRecipes = () => {
           <p className="text-xl font-medium text-gray-500 my-5">
             {recipes[0].description}
           </p>
-          <div className="space-y-2 sm:flex  items-center justify-between">
+          <div className="space-y-2 sm:flex items-center justify-between">
             <p className="text-gray-400 text-lg font-medium flex items-center gap-1">
               <FaThumbsUp className="text-blue-500" /> Likes:{" "}
               <span className="text-orange-400">{likes}</span>{" "}
@@ -90,13 +102,16 @@ hover:scale-95
                 </p>
               </div>
               <div className="card-actions justify-end">
-                <span onClick={handleFavorite}>
-                  {" "}
+                <button
+                  className="btn btn-outline hover:bg-cyan-400"
+                  onClick={handleFavorite}
+                  disabled={btnDisabled}
+                >
                   <FaHeart
-                    className="text-red-400 cursor-pointer"
+                    className="text-red-400 "
                     style={{ fontSize: "30px" }}
                   />
-                </span>
+                </button>
               </div>
             </div>
           </div>
@@ -135,13 +150,17 @@ hover:scale-95"
                 </p>
               </div>
               <div className="card-actions justify-end">
-                <span onClick={handleFavorite}>
+                <button
+                  className="btn btn-outline hover:bg-cyan-400"
+                  onClick={handleFavorite2}
+                  disabled={btnDisabled2}
+                >
                   {" "}
                   <FaHeart
                     className="text-red-400 cursor-pointer"
                     style={{ fontSize: "30px" }}
                   />
-                </span>
+                </button>
               </div>
             </div>
           </div>
@@ -180,13 +199,17 @@ hover:scale-95"
                 </p>
               </div>
               <div className="card-actions justify-end">
-                <span onClick={handleFavorite}>
+                <button
+                  className="btn btn-outline hover:bg-cyan-400"
+                  onClick={handleFavorite3}
+                  disabled={btnDisabled3}
+                >
                   {" "}
                   <FaHeart
                     className="text-red-400 cursor-pointer"
                     style={{ fontSize: "30px" }}
                   />
-                </span>
+                </button>
               </div>
             </div>
           </div>

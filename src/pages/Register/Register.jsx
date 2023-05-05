@@ -22,7 +22,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const createUser = result.user;
-        console.log(createUser);
+        
         setError("");
         toast.success("Register successful", {
           theme: "dark",

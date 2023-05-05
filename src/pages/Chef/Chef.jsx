@@ -1,21 +1,26 @@
 import { FaThumbsUp } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
-  const { chef_photo, experience, chef_name, number_of_recipes, likes, id } = chef;
-
+  const { chef_photo, experience, chef_name, number_of_recipes, likes, id } =
+    chef;
 
   return (
     <div className="my-5">
-      <div className="card sm:w-full  shadow-xl bg-gray-100 duration-300 hover:-translate-y-6 bg-background
+      <div
+        className="card sm:w-full  shadow-xl bg-gray-100 duration-300 hover:-translate-y-6 bg-background
 
-hover:scale-95 hover:border border-orange-200 ">
+hover:scale-95 hover:border border-orange-200 "
+      >
         <figure className="px-8 pt-8">
-          <img
-            src={chef_photo}
-            alt="Shoes"
-            className="rounded-xl h-72 w-full"
-          />
+          <LazyLoad>
+            <img
+              src={chef_photo}
+              alt="Shoes"
+              className="rounded-xl h-72 w-full"
+            />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl font-bold text-gray-50 my-5">
